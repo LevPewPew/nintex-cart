@@ -4,7 +4,9 @@
   "description": "Shopping cart with discount codes.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
     "styled-components": "^4.3.2"

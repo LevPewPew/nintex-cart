@@ -1,5 +1,11 @@
+# build direcory
 dist
 
+# VS Code config
 .vscode
 
+# npm 
 node_modules
+
+# Parcel cache
+.cache

@@ -1,28 +1,24 @@
-// import {
-//     createStore,
-//     applyMiddleware,
-// } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { productApiReducer } from './product-api-reducer';
 
-// import { composeWithDevTools } from 'redux-devtools-extension';
-// import { rootReducer } from './reducers';
+export const rootReducer = combineReducers({
+   product: productApiReducer,
+});
 
-// export function configureStore() {
+export function configureStore() {
+   let middleware = applyMiddleware(thunk);
 
-//     let middleware = applyMiddleware([]);
+   if (process.env.NODE_ENV !== 'production') {
+      middleware = composeWithDevTools(middleware);
+   }
 
-//     if (process.env.NODE_ENV !== 'production') {
-//         middleware = composeWithDevTools(middleware);
-//     }
+   const store = createStore(rootReducer, {}, middleware);
 
-//     const store = createStore(
-//         rootReducer,
-//         initialState,
-//         middleware,
-//     );
+   if (process.env.NODE_ENV !== 'production') {
+      window.dispatch = store.dispatch;
+   }
 
-//     if (process.env.NODE_ENV !== 'production') {
-//         (window).dispatch = store.dispatch;
-//     }
-
-//     return store;
-// }
+   return store;
+}

@@ -1,6 +1,6 @@
 // This is a stub for getting available products
-export const fetchProducts = () => {
-   return [
+export const fetchProducts = () =>
+   new Promise.resolve([
       {
          id: 'wf',
          name: 'Workflow',
@@ -16,5 +16,4 @@ export const fetchProducts = () => {
          name: 'Form',
          price: 99.99,
       },
-   ];
-};
+   ]);

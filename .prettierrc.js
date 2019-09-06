@@ -4,4 +4,6 @@ module.exports = {
    singleQuote: true,
    printWidth: 120,
    tabWidth: 3,
+   jsxBracketSameLine: true,
+   arrowParens: 'always',
 };

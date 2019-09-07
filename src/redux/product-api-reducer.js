@@ -15,7 +15,7 @@ export const productApiActions = {
 
 export const productApiReducer = handleActions(
    {
-      [productApiActions.GET_PRODUCTS]: state => {
+      [productApiActions.GET_PRODUCTS]: (state) => {
          return {
             ...state,
             status: RequestStatus.LOADING,

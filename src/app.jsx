@@ -21,6 +21,15 @@ const GlobalStyle = createGlobalStyle`
       height: 100%;
       width: 100%;
    }
+
+   .highlight-container {
+      /* theme.highlight */
+      background-color: #d8412f;
+
+      /* theme.lightText */
+      color: #fcfdfe;
+      padding: 10px;
+   }
 `;
 
 const theme = {

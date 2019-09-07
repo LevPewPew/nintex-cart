@@ -2,10 +2,10 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export const PageTemplate = props => {
+export const PageTemplate = (props) => {
    return (
       <div className={`${props.className} page-container`}>
-         <header className="header highlight-container">
+         <header className="highlight-container">
             <h1>{props.heading}</h1>
             <div className="sub-heading">{props.subHeading}</div>
          </header>
@@ -22,7 +22,7 @@ export const BasePage = styled(PageTemplate)`
    width: 100%;
    height: 100%;
 
-   .header {
+   header {
       flex-direction: column;
       h1 {
          margin-block-start: 0;
@@ -32,14 +32,7 @@ export const BasePage = styled(PageTemplate)`
 
    .content {
       display: flex;
-      flex-direction: row;
       flex-grow: 2;
-   }
-
-   .highlight-container {
-      background-color: ${props => props.theme.highlight};
-      color: ${props => props.theme.lightText};
-      padding: 10px;
    }
 `;
 

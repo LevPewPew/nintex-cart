@@ -10,7 +10,9 @@ export const PageTemplate = (props) => {
             <div className="sub-heading">{props.subHeading}</div>
          </header>
          <section className="content">{props.children}</section>
-         <section className="footer highlight-container">Watch this space for more great bargains.</section>
+         <section className="footer highlight-container">
+            Watch this space for more great bargains.
+         </section>
       </div>
    );
 };
@@ -19,6 +21,7 @@ export const BasePage = styled(PageTemplate)`
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+
    width: 100%;
    height: 100%;
 
@@ -32,7 +35,11 @@ export const BasePage = styled(PageTemplate)`
 
    .content {
       display: flex;
+      align-items: center;
       flex-grow: 2;
+      width: 100%;
+      max-width: 1024px;
+      align-self: center;
    }
 `;
 

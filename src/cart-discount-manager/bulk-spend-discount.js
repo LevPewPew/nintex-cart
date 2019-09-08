@@ -23,12 +23,14 @@ const getDiscountedCart = (cartItems, discountConfig) => {
       };
    });
 
-   const totalPrice = getCartTotal(cartItems);
+   const totalPriceBeforeDiscount = getCartTotal(cartItems);
+   const totalDiscount = totalPriceBeforeDiscount * (discountConfig.discountPercentage / 100);
+   const totalPrice = totalPriceBeforeDiscount - totalDiscount;
 
    return {
       cartItems: discountedCartItems,
       totalPrice,
-      totalDiscount: totalPrice * (discountConfig.discountPercentage / 100),
+      totalDiscount,
    };
 };
 

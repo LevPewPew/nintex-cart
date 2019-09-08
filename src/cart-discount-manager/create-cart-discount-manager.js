@@ -9,6 +9,7 @@ const discountHandlers = {
 };
 
 export const creatCartWithNoDiscount = (cartItems) => {
+   console.log('creating cart with no discount');
    const cartItemsWithDiscountPriceField = cartItems.map((cartItem) => {
       return {
          ...cartItem,

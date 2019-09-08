@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const ProductItemTemplate = ({ className, product, onClick, addToCart, selected }) => {
-   const [quantity, setQuantity] = useState(1);
+   const [quantity, setQuantity] = useState('1');
 
    return (
       <li
@@ -19,7 +19,7 @@ export const ProductItemTemplate = ({ className, product, onClick, addToCart, se
             <>
                <div>
                   <input type="number" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
-                  <button onClick={() => addToCart(product.productId, quantity)}>Add to Cart</button>
+                  <button onClick={() => addToCart(product.productId, Number(quantity))}>Add to Cart</button>
                </div>
             </>
          )}

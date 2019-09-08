@@ -47,7 +47,6 @@ export const createCartDiscountManager = (discounts) => {
       }, {});
 
    return (promoCode, cartItems) => {
-      console.log('cartItems', cartItems);
       if (!cartItems || cartItems.length === 0) {
          return createEmptyCart();
       }
@@ -56,6 +55,6 @@ export const createCartDiscountManager = (discounts) => {
          return creatCartWithNoDiscount(cartItems);
       }
 
-      return discountManager[promoCode](cartItems);
+      return discountManager[promoCode](cartItems) || creatCartWithNoDiscount(cartItems);
    };
 };

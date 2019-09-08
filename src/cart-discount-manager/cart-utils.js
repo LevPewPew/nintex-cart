@@ -1,8 +1,8 @@
 export const isCartItem = (item) => {
    const nameCheck = typeof item.name === 'string';
    const priceCheck = typeof item.price === 'number';
-   const quantityChick = typeof item.quantity === 'number';
-   return nameCheck && priceCheck && quantityChick;
+   const quantityCheck = typeof item.quantity === 'number';
+   return nameCheck && priceCheck && quantityCheck;
 };
 
 // Return the total price of all items in cartItems
@@ -15,6 +15,9 @@ export const getCartTotal = (cartItems) => {
       if (!isCartItem(item)) {
          throw new Error('Invalid cart item found in getCartTotal.');
       }
-      return (total += item.price * item.quantity);
+
+      const price = item.discountPrice || item.price;
+
+      return (total += price * item.quantity);
    }, 0);
 };

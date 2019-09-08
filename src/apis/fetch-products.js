@@ -1,17 +1,17 @@
 export const fetchProducts = async () => {
    return Promise.resolve([
       {
-         id: 'wf',
+         productId: 'wf',
          name: 'Workflow',
          price: 199.99,
       },
       {
-         id: 'docgen',
+         productId: 'docgen',
          name: 'Document Generation',
          price: 9.99,
       },
       {
-         id: 'form',
+         productId: 'form',
          name: 'Form',
          price: 99.99,
       },

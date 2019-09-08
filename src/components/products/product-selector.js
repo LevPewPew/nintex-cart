@@ -6,7 +6,11 @@ export const ProductItemTemplate = ({ className, product, onClick, addToCart, se
    const [quantity, setQuantity] = useState(1);
 
    return (
-      <li className={`${className} product-item`} id={`product-item-${product.id}`} role="button" onClick={onClick}>
+      <li
+         className={`${className} product-item`}
+         id={`product-item-${product.priductId}`}
+         role="button"
+         onClick={onClick}>
          <div className="item-label">
             <span>{product.name}</span>
             <span>${product.price}</span>
@@ -15,7 +19,7 @@ export const ProductItemTemplate = ({ className, product, onClick, addToCart, se
             <>
                <div>
                   <input type="number" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
-                  <button onClick={() => addToCart(product.id, quantity)}>Add to Cart</button>
+                  <button onClick={() => addToCart(product.productId, quantity)}>Add to Cart</button>
                </div>
             </>
          )}

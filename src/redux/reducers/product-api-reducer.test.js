@@ -17,7 +17,7 @@ describe('Product Reducer', () => {
          type: productApiActions.HAVE_PRODUCTS,
          products: [
             {
-               id: 'wf',
+               productId: 'wf',
                name: 'Workflow',
                price: 199.99,
             },
@@ -27,7 +27,7 @@ describe('Product Reducer', () => {
          status: 'SUCCESS',
          products: [
             {
-               id: 'wf',
+               productId: 'wf',
                name: 'Workflow',
                price: 199.99,
             },

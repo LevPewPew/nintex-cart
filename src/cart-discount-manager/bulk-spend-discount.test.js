@@ -1,7 +1,7 @@
-import { getBulkSpendDiscount } from './bulk-spend-discount';
+import { applyBulkSpendDiscount } from './bulk-spend-discount';
 
-describe('Get Bulk Spend discount.', () => {
-   it('Returns 0 discount amount for cart items when the cart total is too low.', () => {
+describe('Apply Bulk Spend discount.', () => {
+   it("Returns null if discount can't be applied.", () => {
       const cartItems = [
          {
             name: 'Rubber mallet',
@@ -23,24 +23,47 @@ describe('Get Bulk Spend discount.', () => {
          discountPercentage: 15,
       };
 
-      const result = getBulkSpendDiscount(cartItems, discountConfig);
+      const result = applyBulkSpendDiscount(cartItems, discountConfig);
 
-      expect(result).toBe(0);
+      expect(result).toBe(null);
    });
 
    it('Returns the correct discount amount for cart item total is greater then the minSpend.', () => {
       const cartItems = [
          {
+            productId: 'icbm',
             name: 'ICBM',
             price: 2000,
             quantity: 1,
          },
          {
+            productId: 'rs',
             name: 'Rusty spoon',
             price: 4.95,
             quantity: 1,
          },
       ];
+
+      const expectedResult = {
+         cartItems: [
+            {
+               productId: 'icbm',
+               name: 'ICBM',
+               price: 2000,
+               quantity: 1,
+               discountPrice: null,
+            },
+            {
+               productId: 'rs',
+               name: 'Rusty spoon',
+               price: 4.95,
+               quantity: 1,
+               discountPrice: null,
+            },
+         ],
+         totalPrice: 2004.95,
+         totalDiscount: 300.7425,
+      };
 
       const discountConfig = {
          code: '44F4T11',
@@ -50,8 +73,8 @@ describe('Get Bulk Spend discount.', () => {
          discountPercentage: 15,
       };
 
-      const result = getBulkSpendDiscount(cartItems, discountConfig);
+      const result = applyBulkSpendDiscount(cartItems, discountConfig);
 
-      expect(result).toBe(300.7425);
+      expect(result).toEqual(expectedResult);
    });
 });

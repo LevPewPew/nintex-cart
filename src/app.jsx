@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { ShoppingCart } from './components/page/shopping-cart';
+import { ProductsPage } from './components/page/products-page';
 
 const GlobalStyle = createGlobalStyle`
    html, body {
@@ -46,7 +46,7 @@ export const App = () => {
       <>
          <GlobalStyle normalize borderBox fontSourceSansPro />
          <ThemeProvider theme={theme}>
-            <ShoppingCart />
+            <ProductsPage />
          </ThemeProvider>
       </>
    );

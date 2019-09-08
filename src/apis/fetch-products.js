@@ -1,4 +1,3 @@
-// This is a stub for getting available products
 export const fetchProducts = async () => {
    return Promise.resolve([
       {

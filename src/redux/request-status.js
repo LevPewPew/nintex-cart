@@ -5,3 +5,9 @@ export const RequestStatus = {
    SUCCESS: 'SUCCESS',
    FAILURE: 'FAILURE',
 };
+
+export const GetRequestStatusForView = (status) => ({
+   loading: status === RequestStatus.NOT_STARTED || status === RequestStatus.LOADING,
+   haveProducts: status === RequestStatus.SUCCESS,
+   isError: status === RequestStatus.FAILURE,
+});

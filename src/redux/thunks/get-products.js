@@ -7,12 +7,13 @@ export const getProducts = async (dispatch) => {
    });
 
    try {
-      const result = await fetchProducts();
+      const products = await fetchProducts();
       dispatch({
          type: productApiActions.HAVE_PRODUCTS,
-         products: result,
+         products,
       });
    } catch (error) {
+      console.log('getProduct failed with: ', error);
       dispatch({
          type: productApiActions.FAILED_TO_GET_PRODUCTS,
          error: error,

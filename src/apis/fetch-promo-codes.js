@@ -1,7 +1,5 @@
-// This is a stub for getting current promotions available
-// from the back end.
-export const fetchPromoCodeConfig = () => {
-   return [
+export const fetchPromoCodes = () => {
+   return Promise.resolve([
       {
          code: 'RRD4D32',
          description: '10% discount for orders above $1000 (pre-discount)',
@@ -55,5 +53,5 @@ export const fetchPromoCodeConfig = () => {
             },
          ],
       },
-   ];
+   ]);
 };

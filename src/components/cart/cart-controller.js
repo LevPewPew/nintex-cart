@@ -1,25 +1,24 @@
 import { useEffect } from 'react';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ProductSelector } from './product-selector';
-import { getProducts } from '../../redux/thunks/get-products';
+import { getPromoCodes } from '../../redux/thunks/get-promo-code';
 import { GetRequestStatusForView } from '../../redux/request-status';
 import { cartActions } from '../../redux/cart-reducer';
+import { Cart } from './cart';
 
-export const ProductList = () => {
+export const CartController = () => {
    const dispatch = useDispatch();
 
-   const { products, status, error } = useSelector((state) => state.products);
+   const { promoCodes, status, error } = useSelector((state) => state.promoCodes);
 
    useEffect(() => {
-      dispatch(getProducts);
+      dispatch(getPromoCodes);
    }, []);
 
-   const addToCart = (productId, quantity) =>
+   const removeFromCart = (productId) =>
       dispatch({
-         type: cartActions.ADD_TO_CART,
+         type: cartActions.REMOVE_FROM_CART,
          productId,
-         quantity,
       });
 
    const { loading, haveProducts, isError } = GetRequestStatusForView(status);
@@ -27,10 +26,10 @@ export const ProductList = () => {
    return (
       <>
          {loading && 'Loading ...'}
-         {haveProducts && <ProductSelector products={products} addToCart={addToCart} />}
+         {haveProducts && <Cart removeFromCart={removeFromCart} />}
          {isError && `Some thing went wrong: ${error}`}
       </>
    );
 };
 
-ProductList.displayName = 'ProductList';
+CartController.displayName = 'CartController';

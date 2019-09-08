@@ -1,4 +1,4 @@
-import { productApiActions } from '../product-api-reducer';
+import { productApiActions } from '../reducers/product-api-reducer';
 import { fetchProducts } from '../../apis/fetch-products';
 
 export const getProducts = async (dispatch) => {

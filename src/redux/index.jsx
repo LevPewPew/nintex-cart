@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { productApiReducer } from './product-api-reducer';
-import { promoCodeApiReducer } from './promo-code-api-reducer';
-import { cartReducer } from './cart-reducer';
+import { productApiReducer } from './reducers/product-api-reducer';
+import { promoCodeApiReducer } from './reducers/promo-code-api-reducer';
+import { cartReducer } from './reducers/cart-reducer';
 
 export const rootReducer = combineReducers({
    products: productApiReducer,

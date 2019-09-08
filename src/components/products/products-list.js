@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ProductSelector } from './product-selector';
 import { getProducts } from '../../redux/thunks/get-products';
 import { GetRequestStatusForView } from '../../redux/request-status';
-import { cartActions } from '../../redux/cart-reducer';
+import { cartActions } from '../../redux/reducers/cart-reducer';
 
 export const ProductList = () => {
    const dispatch = useDispatch();

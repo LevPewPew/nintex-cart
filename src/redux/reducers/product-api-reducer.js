@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { RequestStatus } from './request-status';
+import { RequestStatus } from '../request-status';
 
 export const initialProductApiState = {
    status: RequestStatus.NOT_STARTED,

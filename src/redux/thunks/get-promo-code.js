@@ -1,4 +1,4 @@
-import { promoCodeApiActions } from '../promo-code-api-reducer';
+import { promoCodeApiActions } from '../reducers/promo-code-api-reducer';
 import { fetchPromoCodes } from '../../apis/fetch-promo-codes';
 
 export const getPromoCodes = async (dispatch) => {

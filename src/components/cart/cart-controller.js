@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPromoCodes } from '../../redux/thunks/get-promo-code';
 import { GetRequestStatusForView } from '../../redux/request-status';
-import { cartActions } from '../../redux/cart-reducer';
+import { cartActions } from '../../redux/reducers/cart-reducer';
 import { Cart } from './cart';
 
 export const CartController = () => {

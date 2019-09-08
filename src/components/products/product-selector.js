@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -8,7 +8,7 @@ export const ProductItemTemplate = ({ className, product, onClick, addToCart, se
    return (
       <li
          className={`${className} product-item`}
-         id={`product-item-${product.priductId}`}
+         id={`product-item-${product.productId}`}
          role="button"
          onClick={onClick}>
          <div className="item-label">
@@ -55,10 +55,10 @@ export const ProductListView = ({ className, products, addToCart }) => {
             {products.length &&
                products.map((product) => (
                   <ProductListItem
-                     key={product.id}
+                     key={product.productId}
                      product={product}
-                     onClick={() => setSelected(product.id)}
-                     selected={product.id === selected}
+                     onClick={() => setSelected(product.productId)}
+                     selected={product.productId === selected}
                      addToCart={addToCart}
                   />
                ))}

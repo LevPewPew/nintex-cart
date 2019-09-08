@@ -15,19 +15,22 @@ export const ProductList = () => {
       dispatch(getProducts);
    }, []);
 
-   const addToCart = (productId, quantity) =>
+   const addToCart = (productId, quantity) => {
+      const product = products.find((product) => product.productId === productId);
+
       dispatch({
          type: cartActions.ADD_TO_CART,
-         productId,
+         ...product,
          quantity,
       });
+   };
 
-   const { loading, haveProducts, isError } = GetRequestStatusForView(status);
+   const { loading, haveResult, isError } = GetRequestStatusForView(status);
 
    return (
       <>
          {loading && 'Loading ...'}
-         {haveProducts && <ProductSelector products={products} addToCart={addToCart} />}
+         {haveResult && <ProductSelector products={products} addToCart={addToCart} />}
          {isError && `Some thing went wrong: ${error}`}
       </>
    );

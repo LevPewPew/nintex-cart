@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-export const initialCartState = {};
+export const initialCartState = [];
 
 export const cartActions = {
    ADD_TO_CART: 'ADD_TO_CART',
@@ -8,22 +8,26 @@ export const cartActions = {
 };
 
 const addToCartReducer = (state, action) => {
-   const { productId, quantity } = action;
-   return {
-      ...state,
-      [productId]: state[productId] ? state[productId] + quantity : quantity,
-   };
+   const { productId, quantity, name, price } = action;
+
+   const indexOfCartItem = state.findIndex((cartItem) => cartItem.productId === action.productId);
+   const newState = [...state];
+
+   if (indexOfCartItem > -1) {
+      newState[indexOfCartItem] = {
+         ...newState[indexOfCartItem],
+         quantity: newState[indexOfCartItem].quantity + action.quantity,
+      };
+   } else {
+      newState.push({ productId, name, quantity, price });
+   }
+
+   return newState;
 };
 
 const removeFromCartReducer = (state, action) => {
    const { productId } = action;
-   if (state[productId]) {
-      return state;
-   }
-
-   const newState = { ...state };
-   delete newState[productId];
-   return copiedState;
+   return state.filter((cartItem) => cartItem.productId !== productId);
 };
 
 export const cartReducer = handleActions(

@@ -61,8 +61,7 @@ export const CartControllerBase = ({ className }) => {
 export const CartController = styled(CartControllerBase)`
    display: flex;
    flex-direction: column;
-   width: 100%;
-   min-width: 400px;
+   width: 400;
    margin: 10px;
 `;
 

@@ -30,11 +30,13 @@ export const PromoSelector = styled(PromoSelectorView)`
    flex-direction: column;
    width: 100%;
    margin: 10px;
+   flex-grow: 1;
 
    .promo-item {
       display: flex;
       flex-direction: row;
       padding: 3px 0;
+      max-width: 500px;
    }
 
    button {

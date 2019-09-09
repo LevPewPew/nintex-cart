@@ -38,7 +38,6 @@ export const BasePage = styled(PageTemplate)`
       align-items: center;
       flex-grow: 2;
       width: 100%;
-      max-width: 1024px;
       align-self: center;
    }
 `;

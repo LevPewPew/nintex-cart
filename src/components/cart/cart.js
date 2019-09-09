@@ -35,10 +35,8 @@ export const CarView = ({
 
 export const Cart = styled(CarView)`
    align-content: center;
-   width: 100%;
    margin: 10px;
    flex-grow: 1;
-   max-width: 400px;
 
    .promo-code-used {
       padding: 5px 0;

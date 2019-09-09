@@ -11,14 +11,14 @@ const CartContainer = styled.div`
    height: 100%;
    align-items: center;
    flex-direction: row;
+   flex-wrap: wrap;
    justify-content: center;
-   /* flex-wrap: wrap; */
 `;
 
 CartContainer.displayName = 'CartContainer';
 
 export const ProductsPage = () => {
-   const heading = 'Great Workflow Deals on Now';
+   const heading = 'Great Workflow Deals';
    const subHeading = 'Check out our products and special deals.';
 
    return (

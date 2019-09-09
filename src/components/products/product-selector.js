@@ -110,8 +110,8 @@ export const ProductListView = ({ className, products, addToCart }) => {
 
 export const ProductSelector = styled(ProductListView)`
    align-content: center;
-   width: 50%;
    max-width: 500px;
+   width: 100%;
    margin: 10px;
    background-color: ${(props) => props.theme.highlight};
    border-radius: 5px;

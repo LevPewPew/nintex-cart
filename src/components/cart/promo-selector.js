@@ -28,7 +28,6 @@ export const PromoSelectorView = ({ className, promoCodes, setSelectedPromoCode 
 export const PromoSelector = styled(PromoSelectorView)`
    display: flex;
    flex-direction: column;
-   width: 100%;
    margin: 10px;
    flex-grow: 1;
 

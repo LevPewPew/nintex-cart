@@ -30,6 +30,12 @@ const GlobalStyle = createGlobalStyle`
       color: #fcfdfe;
       padding: 10px;
    }
+
+   @media (max-width: 400px) {
+      h1 {
+         font-size: 1.2em;
+      }
+   }
 `;
 
 const theme = {

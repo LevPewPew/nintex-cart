@@ -61,7 +61,7 @@ describe('Apply Bulk Spend discount.', () => {
                discountPrice: null,
             },
          ],
-         totalPrice: 2004.95,
+         totalPrice: 1704.2075,
          totalDiscount: 300.7425,
       };
 

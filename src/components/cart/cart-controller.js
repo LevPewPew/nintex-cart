@@ -6,8 +6,11 @@ import { GetRequestStatusForView } from '../../redux/request-status';
 import { cartActions } from '../../redux/reducers/cart-reducer';
 import { Cart } from './cart';
 import { createCartDiscountManager } from '../../cart-discount-manager';
+import { PromoSelector } from './promo-selector';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-export const CartController = () => {
+export const CartControllerBase = ({ className }) => {
    const dispatch = useDispatch();
    const [selectedPromoCode, setSelectedPromoCode] = useState('');
 
@@ -34,16 +37,37 @@ export const CartController = () => {
    const { loading, haveResult, isError } = GetRequestStatusForView(status);
 
    console.log('cartData', cartData);
+   console.log('promo code selected', selectedPromoCode);
 
    return (
-      <>
+      <div className={`${className} cart-controller`}>
          {loading && 'Loading ...'}
          {haveResult && (
-            <Cart removeFromCart={removeFromCart} setSelectedPromoCode={setSelectedPromoCode} cartData={cartData} />
+            <>
+               <Cart
+                  removeFromCart={removeFromCart}
+                  cartData={cartData}
+                  setSelectedPromoCode={setSelectedPromoCode}
+                  selectedPromoCode={selectedPromoCode}
+               />
+               <PromoSelector setSelectedPromoCode={setSelectedPromoCode} promoCodes={promoCodes} />
+            </>
          )}
          {isError && `Some thing went wrong: ${error}`}
-      </>
+      </div>
    );
 };
 
-CartController.displayName = 'CartController';
+export const CartController = styled(CartControllerBase)`
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   min-width: 400px;
+   margin: 10px;
+`;
+
+CartController.propTypes = {
+   className: PropTypes.string,
+};
+
+CartController.displayName = 'CardController';
